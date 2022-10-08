@@ -12,7 +12,7 @@ class Listing(models.Model):
     title = models.CharField(max_length=64)
     description = models.TextField()
     starting_bid = models.IntegerField()
-    current_price = models.DecimalField(max_digits=100, decimal_places=2)
+    current_price = models.DecimalField(max_digits=20, decimal_places=2)
     image_url = models.URLField(blank=True) #optionally add url field
     category = models.CharField(max_length=64 ,blank = True) #optionally add category field
     active = models.BooleanField(default = True) #if the listing is active, default active
@@ -25,7 +25,7 @@ class Comment(models.Model):
     user = models.ForeignKey(User, null=False, on_delete=models.CASCADE, related_name="comments")
 
 class Bid(models.Model):
-    amount = models.DecimalField(max_digits=100, decimal_places=2)
+    amount = models.DecimalField(max_digits=20, decimal_places=2)
     bidder = models.ForeignKey(User, null=False, on_delete=models.CASCADE, related_name="bids")
     listing = models.ForeignKey(Listing, null=False, on_delete=models.CASCADE, related_name="bids")
 
