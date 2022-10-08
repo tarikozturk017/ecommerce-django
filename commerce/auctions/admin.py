@@ -4,7 +4,7 @@ from .models import *
 # TO DO -> list displays 
 
 # Register your models here.
-admin.site(Listing)
-admin.site(User)
-admin.site(Bid)
-admin.site(Comment)
+admin.site.register(Listing)
+admin.site.register(User)
+admin.site.register(Bid)
+admin.site.register(Comment)
