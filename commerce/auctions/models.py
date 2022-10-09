@@ -27,6 +27,9 @@ class Listing(models.Model):
     seller = models.ForeignKey(User, null=False, on_delete=models.CASCADE, related_name="listing_sold")
     buyer = models.ForeignKey(User, null=True, on_delete=models.CASCADE, related_name="listing_bought")
 
+    # def __str__(self):
+    #     return f"{self.title}"
+
 class Comment(models.Model):
     comment = models.CharField(max_length = 256)
     listing = models.ForeignKey(Listing, null=False, on_delete=models.CASCADE, related_name="comment")

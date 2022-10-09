@@ -3,7 +3,7 @@ from django.db import IntegrityError
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
-
+from django.contrib.auth.decorators import login_required
 from .models import *
 from django.forms import ModelForm
 
@@ -13,7 +13,10 @@ class NewListingForm(ModelForm):
         fields = ['title', 'description', 'starting_bid', 'image_url', 'category']
 
 def index(request):
-    return render(request, "auctions/index.html")
+    active_listings = Listing.objects.filter(active=True)
+    return render(request, "auctions/index.html", {
+        "active_listings": active_listings
+    })
 
 
 def login_view(request):
@@ -67,6 +70,7 @@ def register(request):
     else:
         return render(request, "auctions/register.html")
 
+@login_required
 def create_listing(request):
     if request.method == "POST":
         user=request.user
@@ -77,3 +81,4 @@ def create_listing(request):
         return render(request, "auctions/create_listing.html", {
             "form": NewListingForm()
         })
+
