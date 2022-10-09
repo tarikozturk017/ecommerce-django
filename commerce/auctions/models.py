@@ -4,6 +4,14 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 # from .models import *
+CATEGORIES = (
+    ('a', 'Clothing'),
+    ('b', 'Furniture'),
+    ('c', 'Electronics'),
+    ('d', 'Miscellaneous'),
+    ('e', 'Kitchen'),
+    ('f', 'None'),
+)
 
 class User(AbstractUser):
     pass
@@ -14,7 +22,7 @@ class Listing(models.Model):
     starting_bid = models.IntegerField()
     current_price = models.DecimalField(max_digits=20, decimal_places=2)
     image_url = models.URLField(blank=True) #optionally add url field
-    category = models.CharField(max_length=64 ,blank = True) #optionally add category field
+    category = models.CharField(max_length=1, choices=CATEGORIES, default=CATEGORIES[5][1])
     active = models.BooleanField(default = True) #if the listing is active, default active
     seller = models.ForeignKey(User, null=False, on_delete=models.CASCADE, related_name="listing_sold")
     buyer = models.ForeignKey(User, null=True, on_delete=models.CASCADE, related_name="listing_bought")
