@@ -5,7 +5,12 @@ from django.shortcuts import render
 from django.urls import reverse
 
 from .models import *
+from django.forms import ModelForm
 
+class NewListingForm(ModelForm):
+    class Meta:
+        model = Listing
+        fields = ['title', 'description', 'starting_bid', 'image_url', 'category']
 
 def index(request):
     return render(request, "auctions/index.html")
@@ -65,10 +70,10 @@ def register(request):
 def create_listing(request):
     if request.method == "POST":
         user=request.user
-        new_listing = Listing(title=request.POST["create_title"], description=request.POST["create_description"], starting_bid=float(request.POST["starting_bid"]), current_price=float(request.POST["starting_bid"]), image_url=request.POST["url"], category=request.POST["category"], seller=user)
+        new_listing = Listing(title=request.POST["title"], description=request.POST["description"], starting_bid=float(request.POST["starting_bid"]), current_price=float(request.POST["starting_bid"]), image_url=request.POST["image_url"], category=request.POST["category"], seller=user)
         new_listing.save()
         return render(request, "auctions/index.html")
     else:
         return render(request, "auctions/create_listing.html", {
-            "categories": CATEGORIES
+            "form": NewListingForm()
         })

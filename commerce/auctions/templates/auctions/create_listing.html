@@ -4,7 +4,7 @@
 <h1>Create Listing</h1>
 
 <form action="{% url 'create_listing' %}" method="post">
-    {% csrf_token %}
+    <!-- {% csrf_token %}
     <label for="create_title">Enter title:</label>
     <input class="create_title" type="text" name="create_title" placeholder="Enter a title">
     <br>
@@ -19,10 +19,14 @@
     <br>
     <select name="category" id="">
         {% for category in categories %}
-            <option value="{{ category }}">{{ category }}</option>
+            <option value="{{ get_category_size_display }}">{{ category }}</option>
         {% endfor %}
     </select>
     
-    <input type="submit" value="Create Listing">
+    <input type="submit" value="Create Listing"> -->
+
+    {% csrf_token %}
+    {{ form.as_div }}
+    <input type="submit" value="Create Listing" class="btn btn-primary">
 </form>
 {% endblock %}

@@ -18,8 +18,8 @@ class User(AbstractUser):
 
 class Listing(models.Model):
     title = models.CharField(max_length=64)
-    description = models.TextField()
-    starting_bid = models.IntegerField()
+    description = models.CharField(max_length = 256)
+    starting_bid = models.DecimalField(max_digits=20, decimal_places=2)
     current_price = models.DecimalField(max_digits=20, decimal_places=2)
     image_url = models.URLField(blank=True) #optionally add url field
     category = models.CharField(max_length=1, choices=CATEGORIES, default=CATEGORIES[5][1])
