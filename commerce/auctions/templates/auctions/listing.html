@@ -12,9 +12,9 @@
         <p>Starting bid: ${{ listing.current_price }}</p>
         {% else %}
         <p>Total bids: {{ listing.bids.count }}</p>
-        <p>Highest bid: ${{ listing.bids.last.amount }} -
+        <p>Highest bid: ${{ listing.bids.last.amount }}
             {% if listing.bids.last.bidder == user %}
-                You are the highest bidder!
+                - You are the highest bidder!
             {% endif %}
         </p>
         {% endif %}
@@ -39,10 +39,12 @@
           </div>
         {% endif %}
     </form>
+    {% if listing.seller == user %}
     <form action="{% url 'close_bid' listing.title %}" method="post">
         {% csrf_token %}
         <button type="submit" name="close_bid" value="close" class="btn btn-success">Close bid</button>
     </form>
+    {% endif %}
     {% else %}
         {% if listing.buyer == user %}
             <p>Listing is closed, you won the bidding! </p>
@@ -55,8 +57,7 @@
     <p>Category: {{ listing.category}}</p>
     <form action="{% url 'comment' listing.title %}" method="post">
         {% csrf_token %}
-        <label for="comment">Write a commend:</label>
-        <input class="comment" type="textarea" name="comment" placeholder="Please write your comment...">
+        <input class="comment" type="textarea" name="comment" placeholder="Write comment...">
         <input type="submit" value="Post comment" class="btn btn-primary">
     </form>
     {% if listing.comment %}
