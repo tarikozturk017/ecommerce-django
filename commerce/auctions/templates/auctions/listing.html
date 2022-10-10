@@ -53,5 +53,17 @@
     </p>
     <p>Listed by: {{ listing.seller }}</p>
     <p>Category: {{ listing.category}}</p>
+    <form action="{% url 'comment' listing.title %}" method="post">
+        {% csrf_token %}
+        <label for="comment">Write a commend:</label>
+        <input class="comment" type="textarea" name="comment" placeholder="Please write your comment...">
+        <input type="submit" value="Post comment" class="btn btn-primary">
+    </form>
+    {% if listing.comment %}
+        {% for comment in listing.comment.all %}
+            <p>User: {{ comment.user }}</p>
+            <p>Comment: {{ comment.comment }}</p>
+        {% endfor %}
+    {% endif %}
     
 {% endblock %}

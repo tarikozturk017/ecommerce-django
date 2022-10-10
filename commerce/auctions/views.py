@@ -135,6 +135,7 @@ def bid(request, title):
             "bids": bids
         })
 
+@login_required
 def close_bid(request, title):
     if request.method == "POST":
         user=request.user
@@ -147,4 +148,16 @@ def close_bid(request, title):
             return render(request, "auctions/listing.html", {
             "listing": listing,
             "user": user
+        })
+
+@login_required
+def comment(request, title):
+    if request.method == "POST":
+        comment = request.POST["comment"]
+        listing = Listing.objects.get(title=title)
+        user=request.user
+        new_comment = Comment(comment=comment, listing=listing, user=user)
+        new_comment.save()
+        return render(request, "auctions/listing.html", {
+            "listing": listing
         })
