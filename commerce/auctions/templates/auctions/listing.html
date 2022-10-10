@@ -1,0 +1,19 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>{{ listing.title }}</h2>
+    {% if listing.image_url %}
+        <div>{{ listing.image_url }}</div>
+    {% endif %}
+    <br>
+    <div>
+        <p><b>Description: </b>{{ listing.description }}</p>
+        <p>Current price: {{ listing.current_price }}</p>
+    </div>
+    <!-- <a href="add_watch_list/{{ listing.title }}">Add to watch list</a> -->
+    <form action="{% url 'listing' listing.title %}" method="post">
+        {% csrf_token %}
+        <button type="submit" name="add_watch_list" value="listing.title" class="btn btn-primary">Add to watch list</button>
+    </form>
+    
+{% endblock %}

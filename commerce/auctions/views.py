@@ -82,3 +82,20 @@ def create_listing(request):
             "form": NewListingForm()
         })
 
+@login_required
+def listing(request, title):
+    if request.method == "POST":
+        user=request.user
+        listing = Listing.objects.get(title=title)
+        watch_list = WatchList(user=user, listing=listing)
+        watch_list.save()
+        print(f"user: {watch_list.user}")
+        return render(request, "auctions/listing.html", {
+            "listing": listing
+        })
+    else:
+        listing = Listing.objects.get(title=title)
+        return render(request, "auctions/listing.html", {
+            "listing": listing
+        })
+

@@ -43,5 +43,5 @@ class Bid(models.Model):
 # watch list has 1 user (FK), listings -> many to many relation with Listing 
 class WatchList(models.Model):
     user = models.ForeignKey(User, null=False, on_delete=models.CASCADE, related_name="watch_list")
-    listings = models.ManyToManyField(Listing, blank=True, related_name="watch_list")
+    listing = models.ForeignKey(Listing, on_delete=models.CASCADE, null=True, related_name="listings")
 

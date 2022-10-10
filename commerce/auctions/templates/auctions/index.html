@@ -4,6 +4,8 @@
     <h2>Active Listings</h2>
 
     {% for listing in active_listings %}
+    <a href="listing/{{ listing.title }}">
+    <div>
         <h5> Listing: {{ listing.title }} </h5>
         <p>{% if image_url %}
             <img src="{{ listing.image_url }}" alt="{{ listing.image_url }}">
@@ -11,5 +13,7 @@
         <p>{{ listing.description }}</p>
         <p>Current price: ${{ listing.current_price }}</p>
         <br>
+    </div>
+    </a>
     {% endfor %}
 {% endblock %}
