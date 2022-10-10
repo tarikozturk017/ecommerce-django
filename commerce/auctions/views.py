@@ -6,6 +6,7 @@ from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from .models import *
 from django.forms import ModelForm
+from django.contrib import messages
 
 class NewListingForm(ModelForm):
     class Meta:
@@ -108,3 +109,25 @@ def listing(request, title):
             "is_exist": is_exist
         })
 
+@login_required
+def bid(request, title):
+    if request.method == "POST":
+        listing = Listing.objects.get(title=title)
+        user=request.user
+        bid_amount = float(request.POST["bid_amount"])
+        if bid_amount >= listing.current_price:
+            new_bid = Bid(amount=bid_amount, bidder=user, listing=listing)
+            listing.current_price = new_bid.amount
+            listing.save()
+            new_bid.save()
+        else:
+            return render(request, "auctions/listing.html", {
+            "listing": listing,
+            "message": "Your bid is not bigger than the current bid!"
+        })
+        bids = Bid.objects.filter(listing=listing)
+        return render(request, "auctions/listing.html", {
+            "listing": listing,
+            "user": user,
+            "bids": bids
+        })

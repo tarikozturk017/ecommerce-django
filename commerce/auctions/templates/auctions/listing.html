@@ -8,10 +8,18 @@
     <br>
     <div>
         <p><b>Description: </b>{{ listing.description }}</p>
-        <p>Current price: {{ listing.current_price }}</p>
+        {% if listing.bids.count == 0 %}
+        <p>Starting bid: ${{ listing.current_price }}</p>
+        {% else %}
+        <p>Total bids: {{ listing.bids.count }}</p>
+        <p>Highest bid: ${{ listing.bids.last.amount }} -
+            {% if listing.bids.last.bidder == user %}
+                You are the highest bidder!
+            {% endif %}
+        </p>
+        {% endif %}
     </div>
-    <!-- <a href="add_watch_list/{{ listing.title }}">Add to watch list</a> -->
-    
+    <p>
     <form action="{% url 'listing' listing.title %}" method="post">
         {% csrf_token %}
         {% if is_exist %}
@@ -20,5 +28,15 @@
         <button type="submit" name="watch_list" value="add" class="btn btn-primary">Add to watch list</button>
         {% endif %}
     </form>
-    
+    <form action="{% url 'bid' listing.title %}" method="post">
+        {% csrf_token %}
+        <input class="bid_amount" type="text" name="bid_amount" placeholder="Enter your bid">
+        <input type="submit" value="Bid" class="btn btn-info">
+        {% if message %}
+          <div class="alert alert-danger" role="alert">
+            {{ message }}
+          </div>
+        {% endif %}
+    </form>
+    </p>
 {% endblock %}
