@@ -11,9 +11,14 @@
         <p>Current price: {{ listing.current_price }}</p>
     </div>
     <!-- <a href="add_watch_list/{{ listing.title }}">Add to watch list</a> -->
+    
     <form action="{% url 'listing' listing.title %}" method="post">
         {% csrf_token %}
-        <button type="submit" name="add_watch_list" value="listing.title" class="btn btn-primary">Add to watch list</button>
+        {% if is_exist %}
+        <button type="submit" name="watch_list" value="remove" class="btn btn-secondary">Remove from watch list</button>
+        {% else %}
+        <button type="submit" name="watch_list" value="add" class="btn btn-primary">Add to watch list</button>
+        {% endif %}
     </form>
     
 {% endblock %}

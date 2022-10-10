@@ -84,18 +84,27 @@ def create_listing(request):
 
 @login_required
 def listing(request, title):
+    user=request.user
+    listing = Listing.objects.get(title=title)
+    watch_list_check = WatchList.objects.filter(user=user, listing=listing)
+    is_exist = True
+    if not watch_list_check:
+        is_exist = False        
     if request.method == "POST":
-        user=request.user
-        listing = Listing.objects.get(title=title)
-        watch_list = WatchList(user=user, listing=listing)
-        watch_list.save()
-        print(f"user: {watch_list.user}")
+        if request.POST["watch_list"] == "add":
+            watch_list = WatchList(user=user, listing=listing)
+            watch_list.save()
+            is_exist = True
+        elif request.POST["watch_list"] == "remove":
+            watch_list_check.delete()
+            is_exist = False
         return render(request, "auctions/listing.html", {
-            "listing": listing
+            "listing": listing,
+            "is_exist": is_exist
         })
     else:
-        listing = Listing.objects.get(title=title)
         return render(request, "auctions/listing.html", {
-            "listing": listing
+            "listing": listing,
+            "is_exist": is_exist
         })
 
