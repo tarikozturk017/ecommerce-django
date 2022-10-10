@@ -1,12 +1,11 @@
 from django.contrib.auth import authenticate, login, logout
 from django.db import IntegrityError
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from .models import *
 from django.forms import ModelForm
-from django.contrib import messages
 
 class NewListingForm(ModelForm):
     class Meta:
@@ -71,7 +70,7 @@ def register(request):
     else:
         return render(request, "auctions/register.html")
 
-@login_required
+@login_required(login_url='login')
 def create_listing(request):
     if request.method == "POST":
         user=request.user
@@ -85,34 +84,40 @@ def create_listing(request):
             "form": NewListingForm()
         })
 
-@login_required
 def listing(request, title):
-    user=request.user
     listing = Listing.objects.get(title=title)
-    watch_list_check = WatchList.objects.filter(user=user, listing=listing)
-    is_exist = True
-    if not watch_list_check:
-        is_exist = False        
-    if request.method == "POST":
-        if request.POST["watch_list"] == "add":
-            watch_list = WatchList(user=user, listing=listing)
-            watch_list.save()
-            is_exist = True
-        elif request.POST["watch_list"] == "remove":
-            watch_list_check.delete()
-            is_exist = False
-        return render(request, "auctions/listing.html", {
-            "listing": listing,
-            "is_exist": is_exist,
-            "user": user
-        })
+    if request.user.is_authenticated:
+        user=request.user
+        
+        watch_list_check = WatchList.objects.filter(user=user, listing=listing)
+        is_exist = True
+        if not watch_list_check:
+            is_exist = False        
+        if request.method == "POST":
+            if request.POST["watch_list"] == "add":
+                watch_list = WatchList(user=user, listing=listing)
+                watch_list.save()
+                is_exist = True
+            elif request.POST["watch_list"] == "remove":
+                watch_list_check.delete()
+                is_exist = False
+            return render(request, "auctions/listing.html", {
+                "listing": listing,
+                "is_exist": is_exist,
+                "user": user
+            })
+        else:
+            return render(request, "auctions/listing.html", {
+                "listing": listing,
+                "is_exist": is_exist
+            })
     else:
         return render(request, "auctions/listing.html", {
-            "listing": listing,
-            "is_exist": is_exist
-        })
+                "listing": listing,
+                "is_not_logged": True
+            })
 
-@login_required
+@login_required(login_url='login')
 def bid(request, title):
     if request.method == "POST":
         listing = Listing.objects.get(title=title)
@@ -135,7 +140,7 @@ def bid(request, title):
             "bids": bids
         })
 
-@login_required
+@login_required(login_url='login')
 def close_bid(request, title):
     if request.method == "POST":
         user=request.user
@@ -150,7 +155,7 @@ def close_bid(request, title):
             "user": user
         })
 
-@login_required
+@login_required(login_url='login')
 def comment(request, title):
     if request.method == "POST":
         comment = request.POST["comment"]
@@ -176,6 +181,7 @@ def category(request, category):
             "listings": listings
         })
 
+@login_required(login_url='login')
 def watch_list(request):
     if request.method == "GET":
         user = request.user

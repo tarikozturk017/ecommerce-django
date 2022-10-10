@@ -13,13 +13,18 @@
         {% else %}
         <p>Total bids: {{ listing.bids.count }}</p>
         <p>Highest bid: ${{ listing.bids.last.amount }}
-            {% if listing.bids.last.bidder == user %}
-                - You are the highest bidder!
+
+            {% if not is_not_logged %}
+                {% if listing.bids.last.bidder == user %}
+                    - You are the highest bidder!
+                {% endif %}
             {% endif %}
+
         </p>
         {% endif %}
     </div>
     <p>
+    {% if not is_not_logged %}
     {% if listing.active %}
     <form action="{% url 'listing' listing.title %}" method="post">
         {% csrf_token %}
@@ -53,13 +58,16 @@
         {% endif %}
     {% endif %}
     </p>
+    {% endif %}
     <p>Listed by: {{ listing.seller }}</p>
     <p>Category: {{ listing.category}}</p>
+    {% if not is_not_logged %}
     <form action="{% url 'comment' listing.title %}" method="post">
         {% csrf_token %}
         <input class="comment" type="textarea" name="comment" placeholder="Write comment...">
         <input type="submit" value="Post comment" class="btn btn-primary">
     </form>
+    {% endif %}
     {% if listing.comment %}
         {% for comment in listing.comment.all %}
             <p>User: {{ comment.user }}</p>
