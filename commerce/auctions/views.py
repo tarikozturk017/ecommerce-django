@@ -175,4 +175,12 @@ def category(request, category):
         return render(request, "auctions/category.html", {
             "listings": listings
         })
+
+def watch_list(request):
+    if request.method == "GET":
+        user = request.user
+        watch_lists = WatchList.objects.filter(user=user)
+        return render(request, "auctions/watch_list.html", {
+            "watch_lists": watch_lists
+        })
         
