@@ -77,7 +77,9 @@ def create_listing(request):
         user=request.user
         new_listing = Listing(title=request.POST["title"], description=request.POST["description"], starting_bid=float(request.POST["starting_bid"]), current_price=float(request.POST["starting_bid"]), image_url=request.POST["image_url"], category=request.POST["category"], seller=user)
         new_listing.save()
-        return render(request, "auctions/index.html")
+        return render(request, "auctions/listing.html", {
+            "listing": new_listing
+        })
     else:
         return render(request, "auctions/create_listing.html", {
             "form": NewListingForm()

@@ -3,7 +3,7 @@
 {% block body %}
     <h2>{{ listing.title }}</h2>
     {% if listing.image_url %}
-        <div>{{ listing.image_url }}</div>
+        <div><img class="img-{{ listing.title }}" src="{{ listing.image_url }}"></div>
     {% endif %}
     <br>
     <div>
@@ -39,4 +39,7 @@
         {% endif %}
     </form>
     </p>
+    <p>Listed by: {{ listing.seller }}</p>
+    <p>Category: {{ listing.category}}</p>
+    
 {% endblock %}
