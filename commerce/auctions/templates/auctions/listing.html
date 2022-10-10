@@ -20,6 +20,7 @@
         {% endif %}
     </div>
     <p>
+    {% if listing.active %}
     <form action="{% url 'listing' listing.title %}" method="post">
         {% csrf_token %}
         {% if is_exist %}
@@ -38,6 +39,17 @@
           </div>
         {% endif %}
     </form>
+    <form action="{% url 'close_bid' listing.title %}" method="post">
+        {% csrf_token %}
+        <button type="submit" name="close_bid" value="close" class="btn btn-success">Close bid</button>
+    </form>
+    {% else %}
+        {% if listing.buyer == user %}
+            <p>Listing is closed, you won the bidding! </p>
+        {% else %}
+            <p>Listing is closed, you cannot bid on this listing! </p>
+        {% endif %}
+    {% endif %}
     </p>
     <p>Listed by: {{ listing.seller }}</p>
     <p>Category: {{ listing.category}}</p>

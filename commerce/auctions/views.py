@@ -103,7 +103,8 @@ def listing(request, title):
             is_exist = False
         return render(request, "auctions/listing.html", {
             "listing": listing,
-            "is_exist": is_exist
+            "is_exist": is_exist,
+            "user": user
         })
     else:
         return render(request, "auctions/listing.html", {
@@ -132,4 +133,18 @@ def bid(request, title):
             "listing": listing,
             "user": user,
             "bids": bids
+        })
+
+def close_bid(request, title):
+    if request.method == "POST":
+        user=request.user
+        if request.POST["close_bid"] == "close":
+            listing = Listing.objects.get(title=title)
+            buyer = listing.bids.all().last().bidder
+            listing.buyer = buyer
+            listing.active = False
+            listing.save()
+            return render(request, "auctions/listing.html", {
+            "listing": listing,
+            "user": user
         })

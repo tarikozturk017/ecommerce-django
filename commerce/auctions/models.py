@@ -25,7 +25,7 @@ class Listing(models.Model):
     category = models.CharField(max_length=64, choices=CATEGORIES, default=CATEGORIES[5][1])
     active = models.BooleanField(default = True) #if the listing is active, default active
     seller = models.ForeignKey(User, null=False, on_delete=models.CASCADE, related_name="listing_sold")
-    # buyer = models.ForeignKey(User, null=True, on_delete=models.CASCADE, related_name="listing_bought")
+    buyer = models.ForeignKey(User, null=True, on_delete=models.CASCADE, related_name="listing_bought")
 
     # def __str__(self):
     #     return f"{self.title}"
