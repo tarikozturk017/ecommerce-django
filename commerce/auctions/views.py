@@ -161,3 +161,18 @@ def comment(request, title):
         return render(request, "auctions/listing.html", {
             "listing": listing
         })
+
+def categories(request):
+    if request.method == "GET":
+        return render(request, "auctions/categories.html", {
+            "categories": CATEGORIES
+        })
+
+
+def category(request, category):
+    if request.method == "GET":
+        listings = Listing.objects.filter(category=category, active=True)
+        return render(request, "auctions/category.html", {
+            "listings": listings
+        })
+        
