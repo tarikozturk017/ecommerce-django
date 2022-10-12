@@ -6,12 +6,12 @@
     {% for listing in active_listings %}
     <a href="listing/{{ listing.title }}">
     <div>
-        <h5> Listing: {{ listing.title }} </h5>
-        <p>{% if image_url %}
+        <p class="indexListing">Listing: {{ listing.title }} </p>
+        <p class="indexListing">{% if image_url %}
             <img src="{{ listing.image_url }}" alt="{{ listing.image_url }}">
         {% endif %}</p>
-        <p>{{ listing.description }}</p>
-        <p>Current price: ${{ listing.current_price }}</p>
+        <p class="indexListing">{{ listing.description }}</p>
+        <p class="indexListing">Current price: ${{ listing.current_price }}</p>
         <br>
     </div>
     </a>
