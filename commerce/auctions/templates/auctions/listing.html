@@ -1,9 +1,10 @@
 {% extends "auctions/layout.html" %}
 
 {% block body %}
-    <h2>{{ listing.title }}</h2>
+<div class="listing-body">
+    <h2 style="padding-left: 18vh;">{{ listing.title }}</h2>
     {% if listing.image_url %}
-        <div><img class="img-{{ listing.title }}" src="{{ listing.image_url }}"></div>
+        <div><img class="img-listing" src="{{ listing.image_url }}"></div>
     {% endif %}
     <br>
     <div>
@@ -68,11 +69,14 @@
         <input type="submit" value="Post comment" class="btn btn-primary">
     </form>
     {% endif %}
+    <div class="comments">
     {% if listing.comment %}
         {% for comment in listing.comment.all %}
             <p>User: {{ comment.user }}</p>
             <p>Comment: {{ comment.comment }}</p>
         {% endfor %}
     {% endif %}
+    </div>
     
 {% endblock %}
+</div>
