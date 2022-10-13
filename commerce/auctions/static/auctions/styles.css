@@ -1,5 +1,5 @@
 body {
-    padding: 10px;
+    padding: 20px;
     font-family: 'Montserrat';
     font-size: 16px;
 }
@@ -7,6 +7,10 @@ body {
 img {
     width: 300px;
 }
+img.img-index{
+    width: 8vw;
+}
+
 
 a {
     color: rgb(24,24,24);
@@ -20,8 +24,29 @@ a:hover {
     transition: 1s;
 }
 
-p.indexListing {
+p.index-tit {
     display: inline-block;
-    width: 20vw;
+    width: 15vw;
     padding: 5px;
+    font-weight: bold;
+}
+p.img-index{
+    display: inline-block;
+    width: 15vw;
+    padding: 7px;
+}
+p.index-curpr {
+    display: inline-block;
+    width: 15vw;
+    padding: 5px;
+    font-weight: bolder;
+}
+p.index-lisdesc {
+    display: inline-block;
+    width: 30vw;
+    padding: 5px;
+}
+.title-h{
+    font-weight: 900;
+    font-size: 18px;
 }

@@ -2,16 +2,22 @@
 
 {% block body %}
     <h2>Active Listings</h2>
-
+    <div class="title-h">
+        <p class="img-index"></p>
+        <p class="index-tit">Listing</p>
+        <p class="index-curpr">Price</p>
+        <p class="index-lisdesc">Description</p>
+    </div>
+    <hr>
     {% for listing in active_listings %}
     <a href="listing/{{ listing.title }}">
     <div>
-        <p class="indexListing">Listing: {{ listing.title }} </p>
-        <p class="indexListing">{% if image_url %}
-            <img src="{{ listing.image_url }}" alt="{{ listing.image_url }}">
+        <p class="img-index">{% if listing.image_url %}
+            <img class="img-index" src="{{ listing.image_url }}">
         {% endif %}</p>
-        <p class="indexListing">{{ listing.description }}</p>
-        <p class="indexListing">Current price: ${{ listing.current_price }}</p>
+        <p class="index-tit">{{ listing.title }} </p>
+        <p class="index-curpr">${{ listing.current_price }}</p>
+        <p class="index-lisdesc">{{ listing.description }}</p>
         <br>
     </div>
     </a>
