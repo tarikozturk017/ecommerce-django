@@ -5,13 +5,13 @@
     <div class="title-h">
         <p class="img-index"></p>
         <p class="index-tit">Listing</p>
-        <p class="index-curpr">Price</p>
+        <p class="index-curpr">Current Price</p>
         <p class="index-lisdesc">Description</p>
     </div>
     <hr>
     {% for listing in active_listings %}
     <a href="listing/{{ listing.title }}">
-    <div>
+    <div class="body-listing">
         <p class="img-index">{% if listing.image_url %}
             <img class="img-index" src="{{ listing.image_url }}">
         {% endif %}</p>

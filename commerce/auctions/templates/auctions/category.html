@@ -2,7 +2,14 @@
 
 {% block body %}
     <h2>{{ Listings.1.category }}</h2>
-    {% for listing in listings %}
+    <div class="title-h">
+        <p class="img-index"></p>
+        <p class="index-tit">Listing</p>
+        <p class="index-curpr">Current Price</p>
+        <p class="index-lisdesc">Description</p>
+    </div>
+    <hr>
+    <!-- {% for listing in listings %}
         
         <a href="../../listing/{{ listing.title }}">
             <div>
@@ -16,6 +23,20 @@
             </div>
         </a>
         
+        
+    {% endfor %} -->
+    {% for listing in listings %}
+    <a href="../../listing/{{ listing.title }}">
+    <div class="body-listing">
+        <p class="img-index">{% if listing.image_url %}
+            <img class="img-index" src="{{ listing.image_url }}">
+        {% endif %}</p>
+        <p class="index-tit">{{ listing.title }} </p>
+        <p class="index-curpr">${{ listing.current_price }}</p>
+        <p class="index-lisdesc">{{ listing.description }}</p>
+        <br>
+    </div>
+    </a>
     {% endfor %}
     {% if listings.count == 0 %}
         <h5>There is no active listings in this category</h5>

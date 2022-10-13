@@ -8,9 +8,11 @@ CATEGORIES = (
     ('Clothing', 'Clothing'),
     ('Furniture', 'Furniture'),
     ('Electronics', 'Electronics'),
-    ('Miscellaneous', 'Miscellaneous'),
     ('Kitchen', 'Kitchen'),
-    ('None', 'None'),
+    ('Pets', 'Pets'),
+    ('Sport', 'Sport'),
+    ('Fashion', 'Fashion'),
+    ('Others', 'Others'),
 )
 
 class User(AbstractUser):
