@@ -8,11 +8,10 @@ img {
     width: 300px;
 }
 img.img-index{
-    width: 8vw;
-    height: 12vh;
+    width: 6vw;
+    height: 8vh;
     border-radius: 10px;
 }
-
 
 a {
     color: rgb(24,24,24);
@@ -20,22 +19,26 @@ a {
 }
 
 a:hover {
-    font-size: 17px;
-    color: rgb(16,16,16);
     text-decoration: none;
-    transition: 0.5s;
+    transition: 0.8s;
+    box-shadow: 2px 3px rgb(235, 235, 235);
+    color:rgb(235, 235, 235);
+    background-color: rgb(0, 0, 0);
+    border-radius: 5px;
 }
 div.body-listing{
-    
     top: 50%;
-    height: 15vh;
+    height: 10vh;
+    
 }
 div.body-listing:hover{
     box-shadow: 2px 3px rgb(235, 235, 235);
-    background-color: rgb(245, 245, 245);
-    transition: all 1s;
-    padding: 2px 4px;
+    color:rgb(235, 235, 235);
+    background-color: rgb(0, 0, 0);
+    transition: all 0.7s;
+    padding: 4px 6px;
     top: 50%;
+    height: 12vh;
     border-radius: 15px;
 }
 p.index-tit {
@@ -64,3 +67,5 @@ p.index-lisdesc {
     font-weight: 900;
     font-size: 18px;
 }
+
+/* style="background-color:powderblue;" */
