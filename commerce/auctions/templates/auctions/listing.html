@@ -27,18 +27,18 @@
     <p>
     {% if not is_not_logged %}
     {% if listing.active %}
-    <form action="{% url 'listing' listing.title %}" method="post">
+    <form id="watch_list_button" action="{% url 'listing' listing.title %}" method="post">
         {% csrf_token %}
         {% if is_exist %}
-        <button type="submit" name="watch_list" value="remove" class="btn btn-secondary">Remove from watch list</button>
+        <button type="submit" name="watch_list" value="remove" class="btn btn-secondary btn-sm">Remove from watch list</button>
         {% else %}
-        <button type="submit" name="watch_list" value="add" class="btn btn-primary">Add to watch list</button>
+        <button type="submit" name="watch_list" value="add" class="btn btn-dark btn-sm">Add to watch list</button>
         {% endif %}
     </form>
-    <form action="{% url 'bid' listing.title %}" method="post">
+    <form action="{% url 'bid' listing.title %}" method="post" autocomplete="off">
         {% csrf_token %}
         <input class="bid_amount" type="text" name="bid_amount" placeholder="Enter your bid">
-        <input type="submit" value="Bid" class="btn btn-info">
+        <input type="submit" value="Bid" class="btn btn-danger">
         {% if message %}
           <div class="alert alert-danger" role="alert">
             {{ message }}
@@ -63,10 +63,11 @@
     <p>Listed by: {{ listing.seller }}</p>
     <p>Category: {{ listing.category}}</p>
     {% if not is_not_logged %}
-    <form action="{% url 'comment' listing.title %}" method="post">
+    <form action="{% url 'comment' listing.title %}" method="post" autocomplete="off">
         {% csrf_token %}
-        <input class="comment" type="textarea" name="comment" placeholder="Write comment...">
-        <input type="submit" value="Post comment" class="btn btn-primary">
+        <!-- <input class="comment" type="textarea" name="comment" placeholder="Write comment..."> -->
+        <textarea class="comment" name="comment" id="" cols="25" rows="4" placeholder="Write comment..."></textarea>
+        <input type="submit" value="Post comment" class="btn btn-info btn-sm">
     </form>
     {% endif %}
     <div class="comments">

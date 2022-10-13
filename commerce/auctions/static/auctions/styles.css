@@ -17,7 +17,7 @@ img.img-listing {
     height: 24vh;
     border-radius: 5px;
     margin: 3vh 15vh;
-    box-shadow: 3px 4px rgba(245,245,245, 0.9);
+    box-shadow: 3px 4px rgba(45, 45, 45, 0.9);
 }
 a {
     color: rgb(24,24,24);
@@ -32,6 +32,12 @@ a:hover {
     background-color: rgb(0, 0, 0);
     border-radius: 5px;
 }
+
+textarea{
+    border-radius: 10px;
+    background-color: rgb(235, 235, 235);
+}
+
 div.listing-body:hover{
     padding: 10px;
     box-shadow: 2px 3px rgb(235, 235, 235);
@@ -99,4 +105,7 @@ p.index-lisdesc {
     color:rgb(235, 235, 235);
     background-color: rgb(10,10,10);
     transition: all 1.5s;
+}
+#watch_list_button{
+    margin: 1vh 0;
 }
