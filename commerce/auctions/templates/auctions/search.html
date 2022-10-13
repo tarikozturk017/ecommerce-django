@@ -1,0 +1,20 @@
+{% extends "auctions/layout.html" %}
+
+{% block title %}
+    AuctionHub
+{% endblock %}
+
+{% block body %}
+    <h1>Search Listings</h1>
+
+    <ul>
+        {% for search in searches %}
+            <a href=/listing/{{search}}>{{ search }}</a> 
+        {% endfor %}
+        {% if searches|length == 0 %}
+            <p>No result found.</p>
+            <a href="{% url 'index' %}">Go back to homepage</a> 
+        {% endif %}
+    </ul>
+
+{% endblock %}

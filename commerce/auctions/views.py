@@ -1,4 +1,5 @@
 from turtle import textinput
+from typing import List
 from django.contrib.auth import authenticate, login, logout
 from django.db import IntegrityError
 from django.http import HttpResponseRedirect
@@ -190,3 +191,28 @@ def watch_list(request):
             "watch_lists": watch_lists
         })
         
+def search(request):
+    if request.method == "POST":
+        search_title = request.POST['search'] # looks for name="q" in layout
+        listing = None
+        if Listing.objects.filter(title=search_title).count() != 0:
+            listing = Listing.objects.get(title=search_title)
+        if listing is not None:
+            return render(request, "auctions/listing.html", {
+            "listing": listing
+        })
+        else:
+            print("\n\n\nASDADADASKLDJLAKDJLASKDJALDJSA")
+            listings = Listing.objects.all()
+            foundTitles = []
+            for listing in listings:
+                # print(f"\n\nTitle: {listing.title}\n\n")
+                if listing.title.find(search_title) != -1:
+                    foundTitles.append(listing.title)
+
+            for found in foundTitles:
+                print(f"\n\nFound Title: {found}\n\n")
+            return render(request, "auctions/search.html", {
+                "searches": foundTitles
+            })
+            
