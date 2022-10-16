@@ -3,7 +3,7 @@
 {% block body %}
 <h1 style="padding: 0vh 0vw 2vh 3vw;">Create Listing</h1>
 <div class="listing-body">
-<form action="{% url 'create_listing' %}" method="post" autocomplete="off">
+<form id="create-form" action="{% url 'create_listing' %}" method="post" autocomplete="off">
 
     {% csrf_token %}
     {{ form.as_div }}

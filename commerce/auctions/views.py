@@ -202,7 +202,6 @@ def search(request):
             "listing": listing
         })
         else:
-            print("\n\n\nASDADADASKLDJLAKDJLASKDJALDJSA")
             listings = Listing.objects.all()
             foundTitles = []
             for listing in listings:

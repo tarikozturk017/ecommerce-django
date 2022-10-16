@@ -2,7 +2,7 @@
 
 {% block body %}
 <div class="listing-body">
-    <h2 style="padding-left: 18vh;">{{ listing.title }}</h2>
+    <h1 style="padding-left: 18vh;"> {{ listing.title }}</h1>
     {% if listing.image_url %}
         <div><img class="img-listing" src="{{ listing.image_url }}"></div>
     {% endif %}
@@ -70,14 +70,14 @@
         <input style="margin: 0vh 0vw 4vh 0.5vw;" type="submit" value="Post comment" class="btn btn-info btn-sm">
     </form>
     {% endif %}
-    <div class="comments">
     {% if listing.comment %}
-        {% for comment in listing.comment.all %}
-            <p>User: {{ comment.user }}</p>
+    {% for comment in listing.comment.all %}
+        <div class="comments">
+            <p id="user-name">User: {{ comment.user }}</p>
             <p>Comment: {{ comment.comment }}</p>
+        </div>
         {% endfor %}
     {% endif %}
-    </div>
     
 {% endblock %}
 </div>
