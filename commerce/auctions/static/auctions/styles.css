@@ -41,6 +41,40 @@ a:hover {
     border-radius: 5px;
     border-bottom-left-radius: 1px;
     border-bottom-right-radius: 1px;
+    -webkit-transition: padding 2s;
+}
+
+.logo{
+    margin-left: 2vw;
+    -webkit-transition: all 1.5s;
+}
+
+.logo:hover{
+    color:rgb(235, 235, 235);
+    font-weight: 900;
+    font-size: 50px;
+    text-shadow: 5px 5px 10px rgb(235, 235, 235);
+    background-color: rgb(0, 0, 0);
+    padding: 3vh 33vw;
+    margin: 0 1vw 7vh 1vw;
+    -webkit-transition: all 1.3s ease-in-out;
+    box-shadow: 0px 3px 12px 10px #000000;
+    /* text-align: center; */
+}
+.logo:hover>a{
+    color: rgb(235, 235, 235);
+    transition: 1s;
+}
+.logo>a:hover{
+    color:#ababab;
+    background-color: inherit;
+    transition: all 1s;
+}
+
+.signed-user{
+    text-align: right;
+    margin-right: 3vw;
+    margin-bottom: 3vh;
 }
 
 textarea{

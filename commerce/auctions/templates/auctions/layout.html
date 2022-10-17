@@ -9,8 +9,9 @@
         <link href="{% static 'auctions/styles.css' %}" rel="stylesheet">
     </head>
     <body>
-        <h1>AuctionHub</h1>
-        <div>
+        <h1 class="logo"><a href="{% url 'index' %}">AuctionHub</a></h1>
+        <!-- <div><a class="logo">AuctionHub</a></div> -->
+        <div class="signed-user">
             {% if user.is_authenticated %}
                 Welcome to the AuctionHub <strong>{{ user.username }}</strong>.
             {% else %}
