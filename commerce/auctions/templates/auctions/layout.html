@@ -11,12 +11,18 @@
     <body>
         <h1 class="logo"><a href="{% url 'index' %}">AuctionHub</a></h1>
         <!-- <div><a class="logo">AuctionHub</a></div> -->
-        <div class="signed-user">
-            {% if user.is_authenticated %}
-                Welcome to the AuctionHub <strong>{{ user.username }}</strong>.
-            {% else %}
-                Not signed in.
-            {% endif %}
+        <div class="user-search-container">
+            <div class="signed-user">
+                {% if user.is_authenticated %}
+                    Welcome to the AuctionHub <strong>{{ user.username }}</strong>.
+                {% else %}
+                    Not signed in.
+                {% endif %}
+            </div>
+            <form action="{% url 'search' %}" method="post">
+                {% csrf_token %}
+                <input class="search" type="text" name="search" placeholder="Search Listing" autocomplete="off">
+            </form>
         </div>
         <ul class="nav">
             <li class="nav-item">
@@ -43,10 +49,10 @@
                     <a class="nav-link" href="{% url 'register' %}">Register</a>
                 </li>
             {% endif %}
-            <form action="{% url 'search' %}" method="post">
+            <!-- <form action="{% url 'search' %}" method="post">
                 {% csrf_token %}
                 <input class="search" type="text" name="search" placeholder="Search Listing" autocomplete="off">
-            </form>
+            </form> -->
         </ul>
         <!-- <div class="search-container">
         </div> -->
