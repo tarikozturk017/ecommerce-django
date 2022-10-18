@@ -69,7 +69,7 @@
     <form action="{% url 'comment' listing.title %}" method="post" autocomplete="off">
         {% csrf_token %}
         <!-- <input class="comment" type="textarea" name="comment" placeholder="Write comment..."> -->
-        <textarea class="comment" name="comment" id="" cols="25" rows="4" placeholder="Write comment..."></textarea>
+        <textarea class="comment" name="comment" id="" cols="30" rows="4" placeholder="Write comment..."></textarea>
         <input style="margin: 0vh 0vw 4vh 0.5vw;" type="submit" value="Post comment" class="btn btn-info btn-sm">
     </form>
     {% endif %}

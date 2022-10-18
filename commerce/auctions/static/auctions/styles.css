@@ -95,6 +95,7 @@ textarea{
     padding-top: 0px;
     border-radius: 10px;
     background-color: rgb(235, 235, 235);
+    padding: 8px;
 }
 
 div.listing-body{
@@ -179,9 +180,9 @@ p.index-lisdesc {
     margin-bottom: 4vh;
     border-radius: 15px;
     box-shadow: inset 0px 0px 12px 1px #ababab;
-    color:rgb(235, 235, 235);
-    background-color: rgb(10,10,10);
-    width: 30vw;
+    /* color:rgb(235, 235, 235); */
+    /* background-color: rgb(10,10,10); */
+    width: 25vw;
     height: 25vh;
     -webkit-transition: all 0.5s;
 }
@@ -297,7 +298,7 @@ footer a {
 }
 .listing-body>#listing-box{
     border-radius: 10px;
-    margin-bottom: 3vh; 
+    margin-bottom: 8vh; 
     box-shadow: inset 0px 0px 12px 1px #ababab;
     padding: 2vh 2vw;
     width: 35vw;
@@ -306,7 +307,7 @@ footer a {
 
 .listing-body:hover>#listing-box{
     margin-left: 2vw;
-    margin-bottom: 5vh; 
+    margin-bottom: 10vh; 
     border-radius: 10px;
     background-color: rgb(25, 25, 25);
     padding: 2vh 2vw;
@@ -322,6 +323,6 @@ footer a {
 .listing-body:hover>#listing-box:hover{
     box-shadow:  1px 1px 16px 7px #ababab;
     -webkit-transition: all 0.5s ease-in-out;
-    margin-bottom: 6vh;
+    margin-bottom: 11vh;
     padding: 3vh 2.5vw;
 }
