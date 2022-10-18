@@ -7,6 +7,7 @@
         <div><img class="img-listing" src="{{ listing.image_url }}"></div>
     {% endif %}
     <br>
+    <div id="listing-box">
     <div>
         <p><b>Description: </b>{{ listing.description }}</p>
         {% if listing.bids.count == 0 %}
@@ -62,6 +63,8 @@
     {% endif %}
     <p>Listed by: {{ listing.seller }}</p>
     <p>Category: {{ listing.category}}</p>
+    </div>
+
     {% if not is_not_logged %}
     <form action="{% url 'comment' listing.title %}" method="post" autocomplete="off">
         {% csrf_token %}
