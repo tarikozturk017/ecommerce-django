@@ -12,6 +12,8 @@ CATEGORIES = (
     ('Pets', 'Pets'),
     ('Sport', 'Sport'),
     ('Fashion', 'Fashion'),
+    ('Vehicles', 'Vehicles'),
+    ('Artwork', 'Artwork'),
     ('Others', 'Others'),
 )
 
