@@ -1,11 +1,15 @@
 {% extends "auctions/layout.html" %}
 
 {% block body %}
-    <h2>Listing Categories</h2>
-    <ul>
+<h2 style="text-align:center">Listing Categories</h2>
+
+    <ul style="list-style: none;" class="grid-container">
     {% for category in categories %}
-        <li><a href="category/{{ category.1 }}">{{ category.1 }}</a></li>
+    <div>
+        <a href="category/{{ category.1 }}"><li class="grid-item">{{ category.1 }}
+        <img src="https://im.uniqlo.com/global-cms/spa/res85672dd9b517804065e75b2ae4301a47fr.jpg" alt=""></li></a>
+    </div>
     {% endfor %}
     </ul>
-    
+
 {% endblock %}

@@ -31,7 +31,7 @@ img.img-listing:hover {
 a {
     color: rgb(24,24,24);
     text-decoration: none;
-    -webkit-transition: all 0.6s;
+    -webkit-transition: all 1s;
 }
 
 a:hover {
@@ -39,11 +39,11 @@ a:hover {
     transition: all 0.8s;
     /* box-shadow: 2px 3px rgb(235, 235, 235); */
     color:rgb(235, 235, 235);
-    background-color: rgb(0, 0, 0);
+    /* background-color: rgb(0, 0, 0); */
     border-radius: 5px;
     border-bottom-left-radius: 1px;
     border-bottom-right-radius: 1px;
-    -webkit-transition: padding 2s;
+    -webkit-transition: all 1s;
 }
 
 .logo{
@@ -325,4 +325,46 @@ footer a {
     -webkit-transition: all 0.5s ease-in-out;
     margin-bottom: 11vh;
     padding: 3vh 2.5vw;
+}
+.grid-container {
+    display: grid;
+    margin: 5vh 10vw;   
+    align-items: center; 
+    grid-template-columns: repeat(auto-fit, minmax(300px , 1fr));
+}
+.grid-item{
+    box-shadow:  1px 1px 10px 5px #ababab;
+    padding: 3vh 2.5vw;
+    border-radius: 10px;
+    margin: 3vh;
+    text-align: center;
+    -webkit-transition: all 0.5s;
+}
+.grid-item:hover{
+    box-shadow:  1px 1px 16px 7px #545454;
+    padding: 3vh 2.5vw;
+    border-radius: 10px;
+    margin: 3vh;
+    background-color: #000000;
+    /* color: rgb(235, 235, 235); */
+    color: white;
+    cursor: pointer;
+    -webkit-transition: all 0.5s;
+
+    
+}
+
+.grid-item:hover>a{
+    color: rgb(235, 235, 235);
+}
+.grid-item img {
+    border-radius: 10px;
+    box-shadow:  0px 0px 3px 1px #545454;
+    height: auto;
+    width: 25vh;
+    position: relative;
+    margin-top: 3vh;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
 }
