@@ -132,14 +132,14 @@ div.body-listing{
     top: 50%;
     height: 10vh;
     transition: all 1s ease-out;
-    -webkit-transition: all 1s;
+    -webkit-transition: all 0.4s;
 }
 div.body-listing:hover{
     box-shadow: 0px 2px 4px 3px #000000;
     color:rgb(235, 235, 235);
     background-color: rgb(0, 0, 0);
-    -webkit-transition: all 0.7s;
-    padding: 4px 4px;
+    -webkit-transition: all 0.4s;
+    padding: 1px 4px;
     top: 50%;
     height: 10vh;
     border-radius: 15px;
@@ -384,3 +384,24 @@ footer a:hover{
     margin-right: auto;
     display: flex;
 }
+::-webkit-scrollbar {
+    width: 8px;
+    border-radius: 50px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: rgb(235, 235, 235); 
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    margin-right: 20px;
+    background: rgb(40, 40, 40);
+    box-shadow: inset 0px 0px 12px 1px #4b4b4b; 
+    border-radius: 100px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #000000; 
+  }
