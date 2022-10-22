@@ -76,6 +76,8 @@ def create_listing(request):
     if request.method == "POST":
         user=request.user
         new_listing = Listing(title=request.POST["title"], description=request.POST["description"], starting_bid=float(request.POST["starting_bid"]), current_price=float(request.POST["starting_bid"]), image_url=request.POST["image_url"], category=request.POST["category"], seller=user)
+        if(new_listing.image_url == ""):
+            new_listing.image_url = "https://www.freeiconspng.com/thumbs/no-image-icon/no-image-icon-4.png"
         new_listing.save()
         return render(request, "auctions/listing.html", {
             "listing": new_listing

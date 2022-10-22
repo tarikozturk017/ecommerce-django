@@ -47,6 +47,7 @@ a:hover {
 }
 
 .logo{
+    top:3vh;
     margin-left: 2vw;
     margin-bottom: 3vh;
     -webkit-transition: all 1.3s;
@@ -58,8 +59,8 @@ a:hover {
     font-size: 50px;
     text-shadow: 5px 5px 10px rgb(235, 235, 235);
     background-color: rgb(0, 0, 0);
-    padding: 3vh 33vw;
-    margin: 0 1vw 7vh 1vw;
+    padding: 1vh 37vw;
+    margin: 0 0 7vh 1vw;
     -webkit-transition: all 1.3s ease-in-out;
     box-shadow: 0px 3px 12px 10px #000000;
     /* text-align: center; */
@@ -121,6 +122,10 @@ div.listing-body:hover{
     /* padding-left: 10vw; */
     padding-left: 29vw;
     padding-right: auto;
+}
+
+.listing-container{
+    margin-bottom: 15px;
 }
 
 div.body-listing{
@@ -218,15 +223,15 @@ p.index-lisdesc {
 }
 #nav-btm{
     height: 1.5vh;
-    border-radius: 2px;
+    border-radius: 2px 2px 4px 4px;
     background-color: rgb(0, 0, 0);
     margin-bottom: 5vh;
-    box-shadow: 0px 7px 8px 6px #000000;
+    box-shadow: 0px 2px 4px 2px #000000;
 }
 
 .nav>li{
     -webkit-transition: all 0.2s;
-    margin-bottom: 1vh;
+    margin-bottom: -5px;
     border-radius: 5px;
 }
 
@@ -234,8 +239,7 @@ p.index-lisdesc {
     color:rgb(235, 235, 235);
     background-color: rgb(0, 0, 0);
     -webkit-transition: all 0.4s;
-    
-    box-shadow: 0px 7px 8px 6px #000000;
+    box-shadow: 0px 2px 5px 4px #000000;
 }
 
 .nav{
@@ -273,14 +277,14 @@ input[type=number] {
 }
 
 footer{
-    position: relative;
-    margin-bottom: 1vh;
-    margin-top: 4vh;
+    position: fixed;
+    left: 0;
     bottom: 0;
-    height: 5vh;
+    width: 100%;
+    height: 22px;
     text-align: center;
     justify-content: center;
-    border-radius: 5px;
+    border-radius: 4px 4px 0 0;
     box-shadow: 0px 0px 3px 9x #c4c4c4;
     background-color: rgb(0, 0, 0);
     color:rgb(235, 235, 235);
@@ -291,6 +295,18 @@ footer a {
     /* box-shadow: 2px 3px rgb(235, 235, 235); */
     background-color: rgb(0, 0, 0);
     color:rgb(235, 235, 235);
+}
+
+footer a {
+    text-decoration: none;
+    /* box-shadow: 2px 3px rgb(235, 235, 235); */
+    background-color: rgb(0, 0, 0);
+    color:rgb(235, 235, 235);
+}
+
+footer a:hover{
+    color:#ababab;
+    
 }
 .alert{
     width:max-content;

@@ -74,7 +74,7 @@
     </form>
     {% endif %}
     {% if listing.comment %}
-    {% for comment in listing.comment.all %}
+        {% for comment in listing.comment.all %}
         <div class="comments">
             <p id="user-name">User: {{ comment.user }}</p>
             <p>Comment: {{ comment.comment }}</p>

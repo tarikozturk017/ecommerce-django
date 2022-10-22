@@ -9,17 +9,19 @@
         <p class="index-lisdesc">Description</p>
     </div>
     <hr>
-    {% for listing in active_listings %}
-    <a href="listing/{{ listing.title }}">
-    <div class="body-listing">
-        <p class="img-index">{% if listing.image_url %}
-            <img class="img-index" src="{{ listing.image_url }}">
-        {% endif %}</p>
-        <p class="index-tit">{{ listing.title }} </p>
-        <p class="index-curpr">${{ listing.current_price }}</p>
-        <p class="index-lisdesc">{{ listing.description }}</p>
-        <br>
+    <div class="listing-container">
+        {% for listing in active_listings %}
+        <a href="listing/{{ listing.title }}">
+        <div class="body-listing">
+            <p class="img-index">{% if listing.image_url %}
+                <img class="img-index" src="{{ listing.image_url }}">
+            {% endif %}</p>
+            <p class="index-tit">{{ listing.title }} </p>
+            <p class="index-curpr">${{ listing.current_price }}</p>
+            <p class="index-lisdesc">{{ listing.description }}</p>
+            <br>
+        </div>
+        </a>
+        {% endfor %}
     </div>
-    </a>
-    {% endfor %}
 {% endblock %}
