@@ -1,6 +1,7 @@
 {% extends "auctions/layout.html" %}
 
 {% block body %}
+<div class="watch-search-container">
     <h2 style="text-decoration: underline; margin-bottom: 4vh;">Watch List</h2>
     <ul class="a-list">
     {% for watch_list in watch_lists %}
@@ -14,5 +15,5 @@
         <h5>You have no listings in your watch list</h5>
     {% endif %}
     </ul>
-    
+</div>
 {% endblock %}
