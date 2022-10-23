@@ -40,9 +40,11 @@
     </a>
     {% endfor %}
     {% if listings.count == 0 %}
-        <h5>There is no active listings in this category</h5>
-        <a href="{% url 'categories' %}">Go back to Categories</a>
-        <a href="{% url 'index' %}">Go to Homepage</a>
+        <h5 style="margin-bottom: 3vh;">There is no active listings in this category</h5>
+        <ul class="a-list">
+        <li><a href="{% url 'categories' %}">Go back to Categories</a></li>
+        <li></p><a href="{% url 'index' %}">Go to Homepage</a></li>
+        </ul>
     {% endif %}
     
 {% endblock %}

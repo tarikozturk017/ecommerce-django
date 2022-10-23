@@ -25,7 +25,7 @@ class Listing(models.Model):
     starting_bid = models.DecimalField(max_digits=20, decimal_places=2)
     current_price = models.DecimalField(max_digits=20, decimal_places=2)
     image_url = models.URLField(null=True, blank=True) #optionally add url field
-    category = models.CharField(max_length=64, choices=CATEGORIES, default=CATEGORIES[5][1])
+    category = models.CharField(max_length=64, choices=CATEGORIES, default=CATEGORIES[5][0])
     active = models.BooleanField(default = True) #if the listing is active, default active
     seller = models.ForeignKey(User, null=False, on_delete=models.CASCADE, related_name="listing_sold")
     buyer = models.ForeignKey(User, null=True, on_delete=models.CASCADE, related_name="listing_bought")

@@ -2,18 +2,31 @@
 
 {% block body %}
 <h2 style="text-align:center">Listing Categories</h2>
-
+    <div class="categories-container">
     <ul style="list-style: none;" class="grid-container">
     {% for category in categories %}
+    {% for link in links %}
+    {% if forloop.counter == forloop.parentloop.counter %}
     <div>
         <a href="category/{{ category.1 }}">
             <li class="grid-item">{{ category.1 }}
                 <!-- <img src="https://im.uniqlo.com/global-cms/spa/res85672dd9b517804065e75b2ae4301a47fr.jpg" alt=""> -->
-                <!-- <img src={{ images }} alt=""> -->
+                <img src={{ link }} alt="">
             </li>
         </a>
     </div>
+    {% endif %}
+    {% endfor %}
     {% endfor %}
     </ul>
+    </div>
 
 {% endblock %}
+
+{% for x in x_list %}
+  {% for y in y_list %}
+    {% if forloop.counter == forloop.parentloop.counter %}
+       Do Something
+    {% endif %}
+  {% endfor %}
+{% endfor %}
