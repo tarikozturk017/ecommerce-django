@@ -7,13 +7,13 @@
 {% block body %}
     <h1>Search Listings</h1>
 
-    <ul>
+    <ul class="a-list">
         {% for search in searches %}
-            <a href=/listing/{{search}}>{{ search }}</a> 
+            <li> <a href=/listing/{{search}}>{{ search }}</a> </li>
         {% endfor %}
         {% if searches|length == 0 %}
             <p>No result found.</p>
-            <a href="{% url 'index' %}">Go back to homepage</a> 
+            <li><a href="{% url 'index' %}">Go back to homepage</a> </li>
         {% endif %}
     </ul>
 

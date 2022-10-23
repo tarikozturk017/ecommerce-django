@@ -2,12 +2,11 @@
 
 {% block body %}
     <h2>Watch List</h2>
-    <ul>
+    <ul class="a-list">
     {% for watch_list in watch_lists %}
     <li><a href="../listing/{{ watch_list.listing.title }}">
         <div>
             <p> Listing: {{ watch_list.listing.title }}, price:  ${{ watch_list.listing.current_price }}</p>
-            <br>
         </div>
     </li></a>
     {% endfor %}

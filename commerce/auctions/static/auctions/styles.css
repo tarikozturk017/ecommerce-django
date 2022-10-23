@@ -359,23 +359,25 @@ footer a:hover{
 }
 .grid-container {
     display: grid;
-    margin: 5vh 10vw;   
+    grid-template-columns: 1fr 1fr 1fr;
+    display: grid;
+    margin: 3vh 40px 20px 0;
     align-items: center; 
-    grid-template-columns: repeat(auto-fit, minmax(300px , 1fr));
+    /* grid-template-columns: repeat(auto-fit, minmax(300px , 1fr)); */
 }
 .grid-item{
     box-shadow:  1px 1px 10px 5px #ababab;
     padding: 3vh 2.5vw;
     border-radius: 10px;
-    margin: 3vh;
+    margin: 20px;
     text-align: center;
     -webkit-transition: all 0.5s;
 }
 .grid-item:hover{
     box-shadow:  1px 1px 16px 7px #545454;
-    padding: 3vh 2.5vw;
+    
     border-radius: 10px;
-    margin: 3vh;
+    
     background-color: #000000;
     /* color: rgb(235, 235, 235); */
     color: white;
@@ -419,4 +421,10 @@ footer a:hover{
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
     background: #000000; 
+  }
+
+  .a-list >li > a:hover {
+    -webkit-transition: all 0.3s;
+    font-weight: bolder;
+    color:rgb(0, 0, 0)
   }
