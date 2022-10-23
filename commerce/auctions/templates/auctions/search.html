@@ -5,11 +5,13 @@
 {% endblock %}
 
 {% block body %}
-    <h1>Search Listings</h1>
+    <h2 style="text-decoration: underline; margin-bottom: 4vh;">Search Results</h2>
 
     <ul class="a-list">
         {% for search in searches %}
-            <li> <a href="../listing/{{ search.title }}">{{ search.title }}</a> </li>
+            <li> <a href="../listing/{{ search.title }}"><div>
+                <p> <strong>{{ search.title }}</strong>, price:  ${{ search.current_price }}</p>
+            </div></a> </li>
         {% endfor %}
         {% if searches|length == 0 %}
             <p>No result found.</p>

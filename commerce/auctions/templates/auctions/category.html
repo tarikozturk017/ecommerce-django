@@ -2,7 +2,7 @@
 
 {% block body %}
 <div>
-    <h2>{{ Listings.1.category }}</h2>
+    <h2 style="text-decoration: underline; margin-bottom: 4vh;">{{ listings.0.category }}</h2>
     <div class="title-h">
         <p class="img-index"></p>
         <p class="index-tit">Listing</p>
@@ -41,6 +41,8 @@
     {% endfor %}
     {% if listings.count == 0 %}
         <h5>There is no active listings in this category</h5>
+        <a href="{% url 'categories' %}">Go back to Categories</a>
+        <a href="{% url 'index' %}">Go to Homepage</a>
     {% endif %}
     
 {% endblock %}

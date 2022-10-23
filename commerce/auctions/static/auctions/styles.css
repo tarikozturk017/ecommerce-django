@@ -358,8 +358,8 @@ footer a:hover{
 .listing-body:hover>#listing-box:hover{
     box-shadow:  1px 1px 16px 7px #ababab;
     -webkit-transition: all 0.5s ease-in-out;
-    margin-bottom: 11vh;
-    padding: 3vh 2.5vw;
+    /* margin-bottom: 11vh; */
+    /* padding: 3vh 2.5vw; */
 }
 .grid-container {
     display: grid;
