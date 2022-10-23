@@ -9,7 +9,7 @@
 
     <ul class="a-list">
         {% for search in searches %}
-            <li> <a href=/listing/{{search}}>{{ search }}</a> </li>
+            <li> <a href="../listing/{{ search.title }}">{{ search.title }}</a> </li>
         {% endfor %}
         {% if searches|length == 0 %}
             <p>No result found.</p>

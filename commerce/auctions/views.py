@@ -14,6 +14,7 @@ class NewListingForm(ModelForm):
         model = Listing
         fields = ['title', 'description', 'starting_bid', 'image_url', 'category']
 
+# images = "https://im.uniqlo.com/global-cms/spa/res85672dd9b517804065e75b2ae4301a47fr.jpg"
 def index(request):
     active_listings = Listing.objects.filter(active=True)
     return render(request, "auctions/index.html", {
@@ -196,24 +197,21 @@ def watch_list(request):
 def search(request):
     if request.method == "POST":
         search_title = request.POST['search'] # looks for name="q" in layout
-        listing = None
-        if Listing.objects.filter(title=search_title).count() != 0:
-            listing = Listing.objects.get(title=search_title)
-        if listing is not None:
-            return render(request, "auctions/listing.html", {
-            "listing": listing
+        # listing = None
+        # if Listing.objects.filter(title=search_title).count() != 0:
+        #     listing = Listing.objects.get(title=search_title)
+        # if listing is not None:
+        #     return render(request, "auctions/listing.html", {
+        #     "listing": listing
+        # })
+        # else:
+        listings = Listing.objects.all()
+        foundTitles = []
+        for listing in listings:
+            # print(f"\n\nTitle: {listing.title}\n\n")
+            if listing.title.lower().find(search_title.lower()) != -1:
+                foundTitles.append(listing)
+        return render(request, "auctions/search.html", {
+            "searches": foundTitles
         })
-        else:
-            listings = Listing.objects.all()
-            foundTitles = []
-            for listing in listings:
-                # print(f"\n\nTitle: {listing.title}\n\n")
-                if listing.title.find(search_title) != -1:
-                    foundTitles.append(listing.title)
-
-            for found in foundTitles:
-                print(f"\n\nFound Title: {found}\n\n")
-            return render(request, "auctions/search.html", {
-                "searches": foundTitles
-            })
             
