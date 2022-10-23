@@ -80,6 +80,21 @@ a:hover {
     -webkit-transition: all 1s;
 }
 
+.search-container{
+    display:flex;
+    /* color:rgb(80, 80, 80);
+    position: relative;
+    right: 50px; */
+}
+.search-container > i {
+    border: none;
+    background-color: transparent;
+    color:rgb(80, 80, 80);
+    position:relative;
+    top: 13%;
+    left: 88%;
+}
+
 .user-search-container{
     display: flex;
     justify-content: space-between;
