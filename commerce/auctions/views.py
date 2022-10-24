@@ -1,5 +1,3 @@
-from turtle import textinput
-from typing import List
 from django.contrib.auth import authenticate, login, logout
 from django.db import IntegrityError
 from django.http import HttpResponseRedirect
