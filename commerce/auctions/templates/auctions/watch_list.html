@@ -7,7 +7,20 @@
     {% for watch_list in watch_lists %}
     <li><a href="../listing/{{ watch_list.listing.title }}">
         <div>
-            <p> <strong>{{ watch_list.listing.title }}</strong>, price:  ${{ watch_list.listing.current_price }}</p>
+            <!-- <p> <strong>{{ watch_list.listing.title }}</strong>, price:  ${{ watch_list.listing.current_price }}</p> -->
+            <p class="img-index">{% if watch_list.listing.image_url %}
+                <img class="img-index" src="{{ watch_list.listing.image_url }}">
+            {% endif %}</p>
+            <p class="index-tit">{{ watch_list.listing.title }} </p>
+            <p class="index-curpr">${{ watch_list.listing.current_price }}</p>
+            <p class="index-lisdesc" style="
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                max-width: 350px;
+                vertical-align:middle;
+              ">{{ watch_list.listing.description }}
+            </p>
         </div>
     </li></a>
     {% endfor %}

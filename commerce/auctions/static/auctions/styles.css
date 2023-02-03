@@ -157,6 +157,8 @@ div.listing-body:hover{
 
 .listing-container{
     /* margin: 5px 15px 15px 15px; */
+    /* background-color: aquamarine; */
+    /* min-height: 40vh; */
     
 }
 
@@ -460,15 +462,36 @@ footer a:hover{
     background: #000000; 
   }
 
-  .a-list >li > a:hover {
+  /* .a-list >li {
+    margin-top: 5px;
+  }
+  .a-list >li:hover {
     -webkit-transition: all 0.3s;
     font-weight: bolder;
-    color:rgb(0, 0, 0)
-  }
+    background-color:rgb(0, 0, 0);
+  } */
 
-.watch-search-container{
-    margin-left: 5vw;
+  .a-list >li{
+    top: 50%;
+    height: 10vh;
+    max-height: 75px;
+    transition: all 0.5s ease-out;
+    -webkit-transition: all 0.2s;
 }
+    .a-list >li:hover{
+    box-shadow: 0px 2px 4px 3px #000000;
+    /* color:rgb(235, 235, 235); */
+    background-color: rgb(0, 0, 0);
+    -webkit-transition: all 0.2s;
+    padding: 1px 4px;
+    top: 50%;
+    height: 10vh;
+    border-radius: 15px;
+}
+
+/* .watch-search-container{
+    margin-left: 5vw;
+} */
 
 
 .a-icons{
@@ -478,11 +501,12 @@ footer a:hover{
 }
 
 .pagination-container{
-    font-size: 20px;
+    font-size: 25px;
     position: relative;
     left: 0;
     bottom: 30px;
     width: 100%;
+    margin-top: 4vh;
     /* height: 35px; */
     text-align: center;
     justify-content: center;

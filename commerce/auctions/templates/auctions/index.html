@@ -24,24 +24,26 @@
                 text-overflow: ellipsis;
                 max-width: 350px;
                 vertical-align:middle;
-              ">{{ listing.description }}</p>
+              ">{{ listing.description }}
+            </p>
             <br>
         </div>
         </a>
         {% endfor %}
         <!-- {{ act_listings_list }} -->
         <div class="pagination-container">
-        {% if act_listings_list.has_previous %}
-            <a class="a-icons" href="?page=1">&laquo; </a>
-            <a class="a-icons" href="?page={{ act_listings_list.previous_page_number }}"> &lsaquo; </a>
-        {% endif %}
-
-        Page {{ act_listings_list.number }} of {{ act_listings_list.paginator.num_pages }}
-
-        {% if act_listings_list.has_next %}
-            <a class="a-icons" href="?page={{ act_listings_list.next_page_number }}"> &rsaquo;</a>
-            <a class="a-icons" href="?page={{ act_listings_list.paginator.num_pages }}"> &raquo;</a>
-        {% endif %}
-        </div>
+            {% if act_listings_list.has_previous %}
+                <a class="a-icons" href="?page=1">&laquo; </a>
+                <a class="a-icons" href="?page={{ act_listings_list.previous_page_number }}"> &lsaquo; </a>
+            {% endif %}
+        
+            Page {{ act_listings_list.number }} of {{ act_listings_list.paginator.num_pages }}
+        
+            {% if act_listings_list.has_next %}
+                <a class="a-icons" href="?page={{ act_listings_list.next_page_number }}"> &rsaquo;</a>
+                <a class="a-icons" href="?page={{ act_listings_list.paginator.num_pages }}"> &raquo;</a>
+            {% endif %}
+            </div>
     </div>
+    
 {% endblock %}
