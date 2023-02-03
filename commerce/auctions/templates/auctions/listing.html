@@ -1,12 +1,14 @@
 {% extends "auctions/layout.html" %}
 
 {% block body %}
+<div class="listin-body--container">
 <div class="listing-body">
     <h1 style="justify-content: center;"> {{ listing.title }}</h1>
+    <div class="listing-img-desc-container">
     {% if listing.image_url %}
         <div><img class="img-listing" src="{{ listing.image_url }}"></div>
     {% endif %}
-    <br>
+    <div class="listing-desc">
     <div id="listing-box">
     <div>
         <p><b>Description: </b>{{ listing.description }}</p>
@@ -73,6 +75,13 @@
         <input style="margin: 0vh 0vw 4vh 0.5vw;" type="submit" value="Post comment" class="btn btn-info btn-sm">
     </form>
     {% endif %}
+    </div>
+</div>
+
+
+    <br>
+    <h3 style="text-align: left; margin-left: 5vw;">Comments</h3>
+
     {% if listing.comment %}
         {% for comment in listing.comment.all %}
         <div class="comments">
@@ -83,4 +92,5 @@
     {% endif %}
     
 {% endblock %}
+</div>
 </div>

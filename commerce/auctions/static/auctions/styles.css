@@ -27,16 +27,16 @@ img.img-listing {
 }
 img.img-listing:hover {
     width: auto;
-    height: 46vh;
+    height: 42vh;
     border-radius: 12px;
-    margin: 3vh 0vw;
+    /* margin: 3vh 0vw; */
     box-shadow: 0px 0px 14px 5px #ababab;
     -webkit-transition: all 0.5s;
 }
 a {
     color: rgb(24,24,24);
     text-decoration: none;
-    -webkit-transition: all 1s;
+    -webkit-transition: all 0.5s;
 }
 
 a:hover {
@@ -48,41 +48,40 @@ a:hover {
     border-radius: 5px;
     border-bottom-left-radius: 1px;
     border-bottom-right-radius: 1px;
-    -webkit-transition: all 1s;
+    -webkit-transition: all 0.5s;
 }
 
 .logo{
     top:3vh;
     margin-left: 2vw;
     margin-bottom: 3vh;
-    -webkit-transition: all 1.3s;
+    -webkit-transition: all 0.5s;
 }
 
 .logo:hover{
-    color:rgb(235, 235, 235);
-    font-weight: 900;
-    font-size: 50px;
+    color:rgba(235, 235, 235, 0.284);
+    font-weight:900;
+    /* font-size: 50px; */
     text-shadow: 5px 5px 10px rgb(235, 235, 235);
-    background-color: rgb(0, 0, 0);
-    padding: 1vh 37vw;
-    margin: 0 0 7vh 0;
-    -webkit-transition: all 1.3s ease-in-out;
-    box-shadow: 0px 3px 12px 10px #000000;
+    /* background-color: rgb(0, 0, 0); */
+    /* padding: 1vh 37vw; */
+    /* margin: 0 0 7vh 0; */
+    /* -webkit-transition: all 1.3s ease-in-out; */
+    /* box-shadow: 0px 3px 12px 10px #000000; */
     /* text-align: center; */
 }
 .logo:hover>a{
     color: rgb(235, 235, 235);
-    -webkit-transition: all 1s;
+    -webkit-transition: all 0.5s;
     background-color: inherit;
 }
 .logo>a:hover{
     color:#ababab;
     background-color: inherit;
-    -webkit-transition: all 1s;
+    -webkit-transition: all 0.5s;
 }
 .logo>a{
-    /* background-color: inherit; */
-    -webkit-transition: all 1s;
+    -webkit-transition: all 0.5s;
 }
 
 .search-container{
@@ -119,47 +118,64 @@ textarea{
     padding: 8px;
 }
 
+.listin-body--container {
+    display: flex;
+}
+
 div.listing-body{
-    padding-left: 3vw;
-    -webkit-transition: all 1s;
+    /* padding-left: 3vw;
+    -webkit-transition: all 0.5s; */
+    /* background-color: aquamarine; */
+    margin: 0 auto;
 }
 div.listing-body>h1{
-    -webkit-transition: all 1s;
+    font-weight: 900;
+    -webkit-transition: all 0.3s;
+    text-align: center;
 }
 div.listing-body>h1:hover{
-    text-shadow: 5px 5px 10px rgb(235, 235, 235);
-    -webkit-transition: all 1s;
+    text-shadow: 2px 2px 4px rgb(26, 26, 26);
+    -webkit-transition: all 0.3s;
 }
 
 div.listing-body:hover{
-    padding: 10vw;
+    /* padding: 10vw;
     box-shadow: 2px 3px rgb(235, 235, 235);
     color:rgb(235, 235, 235);
     background-color: rgb(0, 0, 0);
     padding: 3vh 5vh;
-    -webkit-transition: all 1s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
     box-shadow: 0px 3px 12px 10px #000000;
-    /* padding-left: 10vw; */
+   
     padding-left: 29vw;
-    padding-right: auto;
+    padding-right: auto; */
+}
+
+.listing-desc{
+    margin-top: 4vh;
 }
 
 .listing-container{
-    margin-bottom: 15px;
+    /* margin: 5px 15px 15px 15px; */
+    
+}
+
+.listing--container {
+    margin: 5px 5vw;
 }
 
 div.body-listing{
     top: 50%;
     height: 10vh;
     max-height: 75px;
-    transition: all 1s ease-out;
-    -webkit-transition: all 0.4s;
+    transition: all 0.5s ease-out;
+    -webkit-transition: all 0.2s;
 }
 div.body-listing:hover{
     box-shadow: 0px 2px 4px 3px #000000;
     color:rgb(235, 235, 235);
     background-color: rgb(0, 0, 0);
-    -webkit-transition: all 0.4s;
+    -webkit-transition: all 0.2s;
     padding: 1px 4px;
     top: 50%;
     height: 10vh;
@@ -202,14 +218,15 @@ p.index-lisdesc {
 }
 
 .comments{
-    padding: 2vh 3vw;
-    margin-bottom: 4vh;
+    padding: 5px 10px;
+    margin-bottom: 2vh;
+    margin-left: 4vw;
     border-radius: 15px;
     box-shadow: inset 0px 0px 12px 1px #ababab;
     /* color:rgb(235, 235, 235); */
     /* background-color: rgb(10,10,10); */
-    width: 25vw;
-    height: 25vh;
+    width: 320px;
+    height: 200px;
     -webkit-transition: all 0.5s;
 }
 .comments:hover{
@@ -259,12 +276,16 @@ p.index-lisdesc {
 .nav>li:hover {
     color:rgb(235, 235, 235);
     background-color: rgb(0, 0, 0);
-    -webkit-transition: all 0.4s;
+    -webkit-transition: all 0.2s;
     box-shadow: 0px 2px 4px 3px #000000;
 }
 
 .nav{
     justify-content: space-between;
+}
+
+#create-form {
+    margin: 5vh 5vw;
 }
 
 #create-form>div>input, select{
@@ -302,20 +323,18 @@ footer{
     left: 0;
     bottom: 0;
     width: 100%;
-    height: 22px;
+    height: 35px;
     text-align: center;
     justify-content: center;
-    border-radius: 4px 4px 0 0;
-    box-shadow: 0px 0px 3px 9x #c4c4c4;
     background-color: rgb(0, 0, 0);
     color:rgb(235, 235, 235);
-    
 }
 footer a {
     text-decoration: none;
     /* box-shadow: 2px 3px rgb(235, 235, 235); */
     background-color: rgb(0, 0, 0);
     color:rgb(235, 235, 235);
+    /* margin-top: 15px; */
 }
 
 footer a {
@@ -334,15 +353,18 @@ footer a:hover{
     margin: 1vh 0;
 }
 .listing-body>#listing-box{
-    border-radius: 10px;
-    margin-bottom: 8vh; 
-    box-shadow: inset 0px 0px 12px 1px #ababab;
-    padding: 2vh 2vw;
-    width: 35vw;
-    -webkit-transition: all 1.5s ease-in-out;
+    text-align: center;
 }
 
-.listing-body:hover>#listing-box{
+.listing-img-desc-container {
+    display: flex;
+    gap: 7vw;
+    margin-bottom: 16vh;
+}
+
+
+
+/* .listing-body:hover>#listing-box{
     margin-left: 2vw;
     margin-bottom: 10vh; 
     border-radius: 10px;
@@ -351,18 +373,17 @@ footer a:hover{
     width: 35vw;
     box-shadow: inset 0px 0px 12px 1px #ababab;
     -webkit-transition: all 1.5s ease-in-out;
-}
+} */
 
-.listing-body:hover>#listing-box{
+/* .listing-body:hover>#listing-box{
     box-shadow:  0px 0px 12px 1px #ababab;
     -webkit-transition: all 0.5s ease-in-out;
 }
 .listing-body:hover>#listing-box:hover{
     box-shadow:  1px 1px 16px 7px #ababab;
     -webkit-transition: all 0.5s ease-in-out;
-    /* margin-bottom: 11vh; */
-    /* padding: 3vh 2.5vw; */
-}
+    
+} */
 .categories-container{
     display: block;
     margin-left: auto;
