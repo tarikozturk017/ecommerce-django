@@ -18,7 +18,13 @@
             {% endif %}</p>
             <p class="index-tit">{{ listing.title }} </p>
             <p class="index-curpr">${{ listing.current_price }}</p>
-            <p class="index-lisdesc">{{ listing.description }}</p>
+            <p class="index-lisdesc" style="
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                max-width: 350px;
+                vertical-align:middle;
+              ">{{ listing.description }}</p>
             <br>
         </div>
         </a>

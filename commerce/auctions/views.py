@@ -7,13 +7,16 @@ from django.contrib.auth.decorators import login_required
 from .models import *
 from django.forms import ModelForm
 
+from django.core.paginator import Paginator
+
+
 links = [
     "https://im.uniqlo.com/global-cms/spa/res85672dd9b517804065e75b2ae4301a47fr.jpg", 
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRceZuMYxbPGBYiO6jyAkbh21cGr1KFlvJnTQ&usqp=CAU", 
     "https://www.americanchemistry.com/var/site/storage/images/4/8/0/7/7084-2-eng-US/Products-Technology.png",
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfSGoQJW-dZPCyzXJThBlxeAP59NyAGCjaFMm75DfaQJY1aun75oKLH95fWGnIbHdC-dU&usqp=CAU",
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUoSApjpqn9Lb7LGKhhC2O2pR2e8bNVrBfiA&usqp=CAU",
-    "https://activeforlife.com/content/uploads/2015/03/sports-gear.jpg", 
+    "https://media.istockphoto.com/id/175005911/photo/balls-isolated-on-white.jpg?b=1&s=170667a&w=0&k=20&c=2rV297wFgSPu8Crvc_wQI_dCWJQxrW-QbEi8wep6Wgo=", 
     "https://s3-prod.autonews.com/s3fs-public/styles/width_792/public/6CX30-MAIN.jpg", 
     "https://www.richmondartgallery.org/wp-content/uploads/WE-ASPIRE-650x451.jpg", 
     "https://learn.marsdd.com/wp-content/uploads/2013/12/industry-competition-and-threat_20190730.png"
@@ -27,6 +30,9 @@ class NewListingForm(ModelForm):
 # images = "https://im.uniqlo.com/global-cms/spa/res85672dd9b517804065e75b2ae4301a47fr.jpg"
 def index(request):
     active_listings = Listing.objects.filter(active=True)
+
+    
+
     return render(request, "auctions/index.html", {
         "active_listings": active_listings
     })
