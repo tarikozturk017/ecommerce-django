@@ -10,7 +10,7 @@
     </div>
     <hr>
     <div class="listing-container">
-        {% for listing in active_listings %}
+        {% for listing in act_listings_list %}
         <a href="listing/{{ listing.title }}">
         <div class="body-listing">
             <p class="img-index">{% if listing.image_url %}
@@ -29,5 +29,19 @@
         </div>
         </a>
         {% endfor %}
+        <!-- {{ act_listings_list }} -->
+        <div class="pagination-container">
+        {% if act_listings_list.has_previous %}
+            <a class="a-icons" href="?page=1">&laquo; </a>
+            <a class="a-icons" href="?page={{ act_listings_list.previous_page_number }}"> &lsaquo; </a>
+        {% endif %}
+
+        Page {{ act_listings_list.number }} of {{ act_listings_list.paginator.num_pages }}
+
+        {% if act_listings_list.has_next %}
+            <a class="a-icons" href="?page={{ act_listings_list.next_page_number }}"> &rsaquo;</a>
+            <a class="a-icons" href="?page={{ act_listings_list.paginator.num_pages }}"> &raquo;</a>
+        {% endif %}
+        </div>
     </div>
 {% endblock %}

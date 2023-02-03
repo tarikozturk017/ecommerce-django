@@ -31,10 +31,14 @@ class NewListingForm(ModelForm):
 def index(request):
     active_listings = Listing.objects.filter(active=True)
 
-    
+    #pagination setup
+    p = Paginator(Listing.objects.filter(active=True), 6)
+    page = request.GET.get('page')
+    act_listings_list = p.get_page(page)
 
     return render(request, "auctions/index.html", {
-        "active_listings": active_listings
+        "active_listings": active_listings,
+        "act_listings_list": act_listings_list
     })
 
 
