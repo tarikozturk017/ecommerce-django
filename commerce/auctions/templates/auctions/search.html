@@ -10,9 +10,27 @@
 
     <ul class="a-list">
         {% for search in searches %}
-            <li> <a href="../listing/{{ search.title }}"><div>
+            <!-- <li> <a href="../listing/{{ search.title }}"><div>
                 <p> <strong>{{ search.title }}</strong>, price:  ${{ search.current_price }}</p>
-            </div></a> </li>
+            </div></a> </li> -->
+            <li><a href="../listing/{{ search.title }}">
+                <div>
+                    <!-- <p> <strong>{{ watch_list.listing.title }}</strong>, price:  ${{ watch_list.listing.current_price }}</p> -->
+                    <p class="img-index">{% if search.image_url %}
+                        <img class="img-index" src="{{ search.image_url }}">
+                    {% endif %}</p>
+                    <p class="index-tit">{{ search.title }} </p>
+                    <p class="index-curpr">${{ search.current_price }}</p>
+                    <p class="index-lisdesc" style="
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        max-width: 350px;
+                        vertical-align:middle;
+                      ">{{ search.description }}
+                    </p>
+                </div>
+            </li></a>
         {% endfor %}
         {% if searches|length == 0 %}
             <p>No result found.</p>
